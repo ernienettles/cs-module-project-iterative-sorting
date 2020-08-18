@@ -1,38 +1,24 @@
 # TO-DO: Complete the selection_sort() function below
 def selection_sort(array):
-    # Outer loops that represents each passthrough of selection sort
     for i in range(0, len(array) - 1):
-        cur_index = i + 1
-        # Keep track of the index containing the lowest value we encounter
-        smallest_index = i
-        # TO-DO: find next smallest element
-        # (hint, can do in 3 loc)
-        # Your code here
-
-        # Inner loop that starts at i + 1
-        for cur_index in range(0, len(array) - 1):
-            # Checks each element of the array that has not yet been sorted and looks 
-            # for the lowest number it found so far in the smallest_index variable
-            if array[cur_index] < array[smallest_index]:
-                smallest_index = j
-
-        # TO-DO: swap
-        # Your code here
-
-        # Checks to see if the lowest number is already in it's correct place
-        if smallest_index != i:
-            temp = array[i]
-            array[i] = array[smallest_index]
-            array[smallest_index] = temp
+        for j in range(i, len(array)):
+            if array[i] > array[j]:
+                array[i], array[j] = array[j], array[i]
     return array
 
 
 # TO-DO:  implement the Bubble Sort function below
-def bubble_sort(arr):
-    # Your code here
-
-
-    return arr
+def bubble_sort(array):
+    unsorted_until_index = len(array) - 1
+    sorted = False
+    while not sorted:
+        sorted = True
+        for i in range(unsorted_until_index):
+            if array[i] > array[i + 1]:
+                sorted = False
+                array[i], array[i + 1] = array[i + 1], array[i]
+        unsorted_until_index -= 1
+    return array
 
 '''
 STRETCH: implement the Counting Sort function below
